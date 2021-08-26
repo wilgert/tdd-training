@@ -1,4 +1,5 @@
 type Heading = 'North' | 'East' | 'South' | 'West';
+type Instruction = 'R' | 'L';
 
 export class MarsRover {
   constructor(private location: [number, number], private heading: Heading) {}
@@ -11,7 +12,7 @@ export class MarsRover {
     return this.heading;
   }
 
-  move(instruction: 'R' | 'L') {
+  move(instruction: Instruction) {
     switch (instruction) {
       case 'R':
         this.heading = 'East';
