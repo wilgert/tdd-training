@@ -51,9 +51,15 @@ describe('The Mars Rover', () => {
     expect(rover.getLocation()).toEqual([0, 2]);
   });
 
-  // it('should not move on invalid instructions', () => {
-  //   let rover = new MarsRover([0, 0], 'North');
-  //   rover.move('X');
-  //   expect(rover.getLocation()).toEqual([0, 0]);
-  // });
+  it('should turn right 2 times', () => {
+    let rover = new MarsRover([0, 0], 'North');
+    rover.move('RR');
+    expect(rover.getHeading()).toEqual('South');
+  });
+
+  it('should turn from West to North', () => {
+    let rover = new MarsRover([0, 0], 'West');
+    rover.move('R');
+    expect(rover.getHeading()).toEqual('North');
+  });
 });

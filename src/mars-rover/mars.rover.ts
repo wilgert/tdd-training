@@ -4,6 +4,9 @@ type Instruction = 'R' | 'L' | 'F' | 'B';
 export class MarsRover {
   private x: number;
   private y: number;
+
+  private headings: Heading[] = ['North', 'East', 'South', 'West'];
+
   constructor([x, y]: [number, number], private heading: Heading) {
     this.x = x;
     this.y = y;
@@ -26,7 +29,8 @@ export class MarsRover {
   private processInstruction(instruction: Instruction) {
     switch (instruction) {
       case 'R':
-        this.heading = 'East';
+        this.heading =
+          this.headings[(this.headings.indexOf(this.heading) + 1) % 4];
         break;
       case 'L':
         this.heading = 'West';
