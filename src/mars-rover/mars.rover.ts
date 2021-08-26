@@ -1,5 +1,5 @@
 type Heading = 'North' | 'East' | 'South' | 'West';
-type Instruction = 'R' | 'L' | 'F';
+type Instruction = 'R' | 'L' | 'F' | 'B';
 
 export class MarsRover {
   constructor(private location: [number, number], private heading: Heading) {}
@@ -22,6 +22,9 @@ export class MarsRover {
         break;
       case 'F':
         this.location = [0, 1];
+        break;
+      case 'B':
+        this.location = [0, -1];
         break;
     }
   }
