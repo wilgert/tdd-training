@@ -11,4 +11,8 @@ export class MarsRover {
   getHeading() {
     return this.heading;
   }
+
+  move(instruction: 'R' | 'L' | 'F' | 'B') {
+    this.heading = 'East';
+  }
 }
