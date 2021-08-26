@@ -1,8 +1,8 @@
 export class MarsRover {
-  constructor() {}
+  constructor(private location: [number, number] = [0, 0]) {}
 
   getLocation(): [number, number] {
-    return [0, 0];
+    return this.location;
   }
 
   getHeading() {
