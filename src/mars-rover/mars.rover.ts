@@ -2,10 +2,15 @@ type Heading = 'North' | 'East' | 'South' | 'West';
 type Instruction = 'R' | 'L' | 'F' | 'B';
 
 export class MarsRover {
-  constructor(private location: [number, number], private heading: Heading) {}
+  private x: number;
+  private y: number;
+  constructor([x, y]: [number, number], private heading: Heading) {
+    this.x = x;
+    this.y = y;
+  }
 
   getLocation(): [number, number] {
-    return this.location;
+    return [this.x, this.y];
   }
 
   getHeading(): Heading {
@@ -21,10 +26,10 @@ export class MarsRover {
         this.heading = 'West';
         break;
       case 'F':
-        this.location = [0, 1];
+        this.y++;
         break;
       case 'B':
-        this.location = [0, -1];
+        this.y--;
         break;
     }
   }

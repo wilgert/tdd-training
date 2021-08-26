@@ -44,4 +44,10 @@ describe('The Mars Rover', () => {
     rover.move('B');
     expect(rover.getLocation()).toEqual([0, -1]);
   });
+
+  // it('should not move on invalid instructions', () => {
+  //   let rover = new MarsRover([0, 0], 'North');
+  //   rover.move('X');
+  //   expect(rover.getLocation()).toEqual([0, 0]);
+  // });
 });
