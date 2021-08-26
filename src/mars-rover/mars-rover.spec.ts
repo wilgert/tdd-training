@@ -32,4 +32,10 @@ describe('The Mars Rover', () => {
     rover.move('L');
     expect(rover.getHeading()).toEqual('West');
   });
+
+  it('should move forward', () => {
+    let rover = new MarsRover([0, 0], 'North');
+    rover.move('F');
+    expect(rover.getLocation()).toEqual([0, 1]);
+  });
 });
