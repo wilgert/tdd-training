@@ -17,7 +17,13 @@ export class MarsRover {
     return this.heading;
   }
 
-  move(instruction: Instruction) {
+  move(instruction: string) {
+    instruction.split('').forEach((instruction) => {
+      this.processInstruction(instruction as Instruction);
+    });
+  }
+
+  private processInstruction(instruction: Instruction) {
     switch (instruction) {
       case 'R':
         this.heading = 'East';
