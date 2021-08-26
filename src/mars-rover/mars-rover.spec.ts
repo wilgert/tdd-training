@@ -5,4 +5,9 @@ describe('The Mars Rover', () => {
     let rover = new MarsRover();
     expect(rover.getLocation()).toEqual([0, 0]);
   });
+
+  it('should have a heading', () => {
+    let rover = new MarsRover();
+    expect(rover.getHeading()).toEqual('North');
+  });
 });

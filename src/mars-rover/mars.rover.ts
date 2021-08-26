@@ -4,4 +4,8 @@ export class MarsRover {
   getLocation(): [number, number] {
     return [0, 0];
   }
+
+  getHeading() {
+    return 'North';
+  }
 }
