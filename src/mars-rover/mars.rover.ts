@@ -5,8 +5,8 @@ export class MarsRover {
   private x: number;
   private y: number;
 
-  private compass: Heading[] = ['North', 'East', 'South', 'West'];
-  private reverseCompass: Heading[] = [...this.compass].reverse();
+  private readonly compass: Heading[] = ['North', 'East', 'South', 'West'];
+  private readonly reverseCompass: Heading[] = [...this.compass].reverse();
 
   constructor([x, y]: [number, number], private heading: Heading) {
     this.x = x;
@@ -35,9 +35,9 @@ export class MarsRover {
   };
 
   private instructionMap: { [key in Instruction]: () => void } = {
-    R: () => (this.heading = this.turn(this.compass)),
+    R: () => this.turn(this.compass),
     L: () => {
-      this.heading = this.turn(this.reverseCompass);
+      this.turn(this.reverseCompass);
     },
     F: () => {
       let { x, y } = this.vectorMap[this.heading];
@@ -51,7 +51,7 @@ export class MarsRover {
     },
   };
 
-  private turn(compass: Heading[]): Heading {
-    return compass[(compass.indexOf(this.heading) + 1) % 4];
+  private turn(compass: Heading[]) {
+    this.heading = compass[(compass.indexOf(this.heading) + 1) % 4];
   }
 }
