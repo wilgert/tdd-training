@@ -57,4 +57,10 @@ describe('The Mars Rover', () => {
       expect(rover.getHeading()).toEqual(expectedHeading);
     }
   );
+
+  it('should be able to follow a complex set of instructions', () => {
+    let rover = new MarsRover([0, 0], 'North');
+    rover.move('FFRFFF');
+    expect(rover.getLocation()).toEqual([3, 2]);
+  });
 });
