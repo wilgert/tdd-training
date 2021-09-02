@@ -33,7 +33,8 @@ export class MarsRover {
           this.headings[(this.headings.indexOf(this.heading) + 1) % 4];
         break;
       case 'L':
-        this.heading = 'West';
+        let nextHeading = this.headings.indexOf(this.heading) - 1;
+        this.heading = this.headings[nextHeading === -1 ? 3 : nextHeading];
         break;
       case 'F':
         this.y++;
