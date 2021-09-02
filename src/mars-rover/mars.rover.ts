@@ -22,7 +22,7 @@ export class MarsRover {
 
   move(instruction: string) {
     instruction.split('').forEach((instruction) => {
-      this.processInstruction(instruction as Instruction);
+      this.instructionMap[instruction as Instruction]();
     });
   }
 
@@ -33,25 +33,23 @@ export class MarsRover {
     West: { x: -1, y: 0 },
   };
 
-  private processInstruction(instruction: Instruction) {
-    let { x, y } = this.vectorMap[this.heading];
-
-    switch (instruction) {
-      case 'R':
-        this.heading =
-          this.headings[(this.headings.indexOf(this.heading) + 1) % 4];
-        break;
-      case 'L':
-        let nextHeading = this.headings.indexOf(this.heading) - 1;
-        this.heading = this.headings[nextHeading === -1 ? 3 : nextHeading];
-        break;
-      case 'F':
-        this.x += x;
-        this.y += y;
-        break;
-      case 'B':
-        this.x -= x;
-        this.y -= y;
-    }
-  }
+  private instructionMap: { [key in Instruction]: () => void } = {
+    R: () =>
+      (this.heading =
+        this.headings[(this.headings.indexOf(this.heading) + 1) % 4]),
+    L: () => {
+      let nextHeading = this.headings.indexOf(this.heading) - 1;
+      this.heading = this.headings[nextHeading === -1 ? 3 : nextHeading];
+    },
+    F: () => {
+      let { x, y } = this.vectorMap[this.heading];
+      this.x += x;
+      this.y += y;
+    },
+    B: () => {
+      let { x, y } = this.vectorMap[this.heading];
+      this.x -= x;
+      this.y -= y;
+    },
+  };
 }
