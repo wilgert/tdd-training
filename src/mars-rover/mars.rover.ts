@@ -26,7 +26,16 @@ export class MarsRover {
     });
   }
 
+  private vectorMap: { [key in Heading]: { x: number; y: number } } = {
+    North: { x: 0, y: 1 },
+    East: { x: 1, y: 0 },
+    South: { x: 0, y: -1 },
+    West: { x: -1, y: 0 },
+  };
+
   private processInstruction(instruction: Instruction) {
+    let { x, y } = this.vectorMap[this.heading];
+
     switch (instruction) {
       case 'R':
         this.heading =
@@ -37,36 +46,12 @@ export class MarsRover {
         this.heading = this.headings[nextHeading === -1 ? 3 : nextHeading];
         break;
       case 'F':
-        switch (this.heading) {
-          case 'North':
-            this.y++;
-            break;
-          case 'East':
-            this.x++;
-            break;
-          case 'South':
-            this.y--;
-            break;
-          case 'West':
-            this.x--;
-            break;
-        }
+        this.x += x;
+        this.y += y;
         break;
       case 'B':
-        switch (this.heading) {
-          case 'North':
-            this.y--;
-            break;
-          case 'East':
-            this.x--;
-            break;
-          case 'South':
-            this.y++;
-            break;
-          case 'West':
-            this.x++;
-            break;
-        }
+        this.x -= x;
+        this.y -= y;
     }
   }
 }
