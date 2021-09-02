@@ -18,6 +18,10 @@ export class Warehouse {
   }
 
   buyCd(title: string) {
-    this.stock[title]--;
+    if (this.stock[title] > 0) {
+      this.stock[title]--;
+    } else {
+      throw new Error('This cd is not in stock');
+    }
   }
 }

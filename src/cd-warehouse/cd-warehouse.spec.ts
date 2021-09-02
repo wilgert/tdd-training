@@ -26,6 +26,15 @@ describe('cd warehouse', () => {
           expect(warehouse.getStock()).toEqual({ 'Hooray for the Boobies': 0 });
         });
       });
+
+      describe('cd is not in stock', () => {
+        it('returns an error', () => {
+          let warehouse = new Warehouse({});
+          expect(() => warehouse.buyCd('Hooray for the Boobies')).toThrow(
+            'This cd is not in stock'
+          );
+        });
+      });
     });
   });
 });
