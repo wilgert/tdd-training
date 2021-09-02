@@ -21,18 +21,6 @@ describe('The Mars Rover', () => {
     expect(rover.getHeading()).toEqual('South');
   });
 
-  it('should turn right', () => {
-    let rover = new MarsRover([0, 0], 'North');
-    rover.move('R');
-    expect(rover.getHeading()).toEqual('East');
-  });
-
-  it('should turn left', () => {
-    let rover = new MarsRover([0, 0], 'North');
-    rover.move('L');
-    expect(rover.getHeading()).toEqual('West');
-  });
-
   it('should move forward', () => {
     let rover = new MarsRover([0, 0], 'North');
     rover.move('F');
