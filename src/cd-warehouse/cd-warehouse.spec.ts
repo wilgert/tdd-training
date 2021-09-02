@@ -12,7 +12,21 @@ describe('cd warehouse', () => {
       });
 
       describe('send 1 copy of a cd that already exists', () => {
-        it('increases stock count', () => {});
+        it('increases stock count', () => {
+          const warehouse = new Warehouse({
+            'Hooray for the Boobies': 1,
+          });
+          warehouse.addCds([{ title: 'Hooray for the Boobies', copies: 1 }]);
+          expect(warehouse.getStock()).toEqual({ 'Hooray for the Boobies': 2 });
+        });
+      });
+
+      describe('send multiple copies of a cd that is new', () => {
+        it('adds to stock', () => {
+          const warehouse = new Warehouse({});
+          warehouse.addCds([{ title: 'Elephant', copies: 3 }]);
+          expect(warehouse.getStock()).toEqual({ Elephant: 3 });
+        });
       });
     });
   });
