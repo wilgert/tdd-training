@@ -37,7 +37,20 @@ export class MarsRover {
         this.heading = this.headings[nextHeading === -1 ? 3 : nextHeading];
         break;
       case 'F':
-        this.y++;
+        switch (this.heading) {
+          case 'North':
+            this.y++;
+            break;
+          case 'East':
+            this.x++;
+            break;
+          case 'South':
+            this.y--;
+            break;
+          case 'West':
+            this.x--;
+            break;
+        }
         break;
       case 'B':
         this.y--;

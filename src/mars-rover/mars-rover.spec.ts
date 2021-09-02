@@ -21,23 +21,22 @@ describe('The Mars Rover', () => {
     expect(rover.getHeading()).toEqual('South');
   });
 
-  it('should move forward', () => {
-    let rover = new MarsRover([0, 0], 'North');
-    rover.move('F');
-    expect(rover.getLocation()).toEqual([0, 1]);
-  });
-
-  it('should move backward', () => {
-    let rover = new MarsRover([0, 0], 'North');
-    rover.move('B');
-    expect(rover.getLocation()).toEqual([0, -1]);
-  });
-
-  it('should move forward 2 times', () => {
-    let rover = new MarsRover([0, 0], 'North');
-    rover.move('FF');
-    expect(rover.getLocation()).toEqual([0, 2]);
-  });
+  it.each`
+    startHeading | instruction | expectedLocation
+    ${'North'}   | ${'F'}      | ${[0, 1]}
+    ${'East'}    | ${'F'}      | ${[1, 0]}
+    ${'South'}   | ${'F'}      | ${[0, -1]}
+    ${'West'}    | ${'F'}      | ${[-1, 0]}
+    ${'North'}   | ${'FF'}     | ${[0, 2]}
+    ${'North'}   | ${'B'}      | ${[0, -1]}
+  `(
+    '"$instruction" should move to $expectedLocation when heading $startHeading',
+    ({ startHeading, instruction, expectedLocation }) => {
+      let rover = new MarsRover([0, 0], startHeading);
+      rover.move(instruction);
+      expect(rover.getLocation()).toEqual(expectedLocation);
+    }
+  );
 
   it.each`
     startHeading | instruction | expectedHeading
