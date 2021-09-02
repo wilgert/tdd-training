@@ -7,9 +7,9 @@ actor
 Record label
 - send batch of cd's
 
--- send 1 copy of a cd that is new
---- add to stock
----- sendCds: [{title: 'Elephant', copies: 1}] | currentStock: {} | result: { 'Elephant': 1 }
+V -- send 1 copy of a cd that is new
+V --- add to stock
+V ---- sendCds: [{title: 'Elephant', copies: 1}] | currentStock: {} | result: { 'Elephant': 1 }
 
 -- send 1 copy of a cd that already exists
 --- increase stock count

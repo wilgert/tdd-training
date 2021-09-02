@@ -16,4 +16,16 @@ describe('cd warehouse', () => {
       });
     });
   });
+
+  describe('customer', () => {
+    describe('buy cd', () => {
+      describe('cd is in stock', () => {
+        it('decreases stock count', () => {
+          const warehouse = new Warehouse({ 'Hooray for the Boobies': 1 });
+          warehouse.buyCd('Hooray for the Boobies');
+          expect(warehouse.getStock()).toEqual({ 'Hooray for the Boobies': 0 });
+        });
+      });
+    });
+  });
 });

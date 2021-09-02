@@ -16,4 +16,8 @@ export class Warehouse {
       this.stock[stockItem.title] += stockItem.copies;
     });
   }
+
+  buyCd(title: string) {
+    this.stock[title]--;
+  }
 }
