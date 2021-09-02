@@ -29,6 +29,9 @@ describe('The Mars Rover', () => {
     ${'West'}    | ${'F'}      | ${[-1, 0]}
     ${'North'}   | ${'FF'}     | ${[0, 2]}
     ${'North'}   | ${'B'}      | ${[0, -1]}
+    ${'East'}    | ${'B'}      | ${[-1, 0]}
+    ${'South'}   | ${'B'}      | ${[0, 1]}
+    ${'West'}    | ${'B'}      | ${[1, 0]}
   `(
     '"$instruction" should move to $expectedLocation when heading $startHeading',
     ({ startHeading, instruction, expectedLocation }) => {

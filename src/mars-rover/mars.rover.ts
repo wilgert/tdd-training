@@ -53,8 +53,20 @@ export class MarsRover {
         }
         break;
       case 'B':
-        this.y--;
-        break;
+        switch (this.heading) {
+          case 'North':
+            this.y--;
+            break;
+          case 'East':
+            this.x--;
+            break;
+          case 'South':
+            this.y++;
+            break;
+          case 'West':
+            this.x++;
+            break;
+        }
     }
   }
 }
