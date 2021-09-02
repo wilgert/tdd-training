@@ -1,0 +1,42 @@
+actor
+- action
+-- scenario
+--- outcome
+---- example test case / test data
+
+Record label
+- send batch of cd's
+-- send 1 copy of a cd that already exists
+--- increase stock count
+---- sendCds: [{ title: 'Hooray for the boobies', copies: 1 }] | currentStock: { 'Hooray for the Boobies': 1 } | result: { 'Hooray for the Boobies': 2 }
+
+-- send 1 copy of a cd that is new
+--- add to stock
+---- sendCds: [{title: 'Elephant', copies: 1}] | currentStock: {} | result: { 'Elephant': 1 }
+
+-- send multiple copies of a cd that is new
+--- add to stock
+---- sendCds: [{title: 'Elephant', copies: 3}] | currentStock: {} | result: { 'Elephant': 3 }
+
+-- send multiples titles
+--- cd's are new
+---- sendCds: [{ title: 'Hooray for the boobies', copies: 3 }, {title: 'Elephant', copies: 2}] | currentStock: {} | result: { 'Elephant': 2, 'Hooray for the boobies': 3 }
+
+Customer
+- Buy cd
+-- Cd is in stock
+--- decrease stock count
+---- buyCd: 'Hooray for the boobies' | currentStock: { 'Hooray for the Boobies': 1 }  | result: { 'Hooray for the Boobies': 0 }
+
+-- Cd is not in stock
+--- return error
+---- buyCd: 'Hooray for the boobies' | currentStock: { elephant: 1 } | result: 'This cd is not in stock'
+
+- Leave review
+-- Provide only a rating
+--- Rating saved
+---- rateCd: { title: 'Hooray for the boobies', rating: 7 } | currentReviews: { 'Hooray for the boobies', reviews: [] } | result: { 'Hooray for the boobies', reviews: [{rating: 7, text: ''}] }
+
+-- Provide rating and text
+--- Rating and text saved
+---- rateCd: { title: 'Hooray for the boobies', rating: 7, text: 'Love it' } | currentReviews: { 'Hooray for the boobies', reviews: [] } | result: { 'Hooray for the boobies', reviews: [{rating: 7, text: 'Love it'}] }
