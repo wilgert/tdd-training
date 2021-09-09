@@ -1,6 +1,4 @@
-function convert(input: number): string {
-  return 'I';
-}
+import { convert } from './convert';
 
 describe('Roman numeral converter', () => {
   it('converts 1', () => {
