@@ -14,10 +14,10 @@ describe('cd warehouse', () => {
       describe('send 1 copy of a cd that already exists', () => {
         it('increases stock count', () => {
           const warehouse = new Warehouse({
-            'Hooray for the Boobies': 1,
+            'Hooray for Boobies': 1,
           });
-          warehouse.addCds([{ title: 'Hooray for the Boobies', copies: 1 }]);
-          expect(warehouse.getStock()).toEqual({ 'Hooray for the Boobies': 2 });
+          warehouse.addCds([{ title: 'Hooray for Boobies', copies: 1 }]);
+          expect(warehouse.getStock()).toEqual({ 'Hooray for Boobies': 2 });
         });
       });
 
@@ -35,16 +35,16 @@ describe('cd warehouse', () => {
     describe('buy cd', () => {
       describe('cd is in stock', () => {
         it('decreases stock count', () => {
-          const warehouse = new Warehouse({ 'Hooray for the Boobies': 1 });
-          warehouse.buyCd('Hooray for the Boobies');
-          expect(warehouse.getStock()).toEqual({ 'Hooray for the Boobies': 0 });
+          const warehouse = new Warehouse({ 'Hooray for Boobies': 1 });
+          warehouse.buyCd('Hooray for Boobies');
+          expect(warehouse.getStock()).toEqual({ 'Hooray for Boobies': 0 });
         });
       });
 
       describe('cd is not in stock', () => {
         it('returns an error', () => {
           let warehouse = new Warehouse({});
-          expect(() => warehouse.buyCd('Hooray for the Boobies')).toThrow(
+          expect(() => warehouse.buyCd('Hooray for Boobies')).toThrow(
             'This cd is not in stock'
           );
         });
