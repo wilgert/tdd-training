@@ -1,11 +1,11 @@
 import { convert } from './convert';
 
 describe('Roman numeral converter', () => {
-  it('converts 1 to "I"', () => {
-    expect(convert(1)).toEqual('I');
-  });
-
-  it('converts 2 to "II"', () => {
-    expect(convert(2)).toEqual('II');
+  it.each`
+    input | expected
+    ${1}  | ${'I'}
+    ${2}  | ${'II'}
+  `('converts $input to "$expected"', ({ input, expected }) => {
+    expect(convert(input)).toEqual(expected);
   });
 });
