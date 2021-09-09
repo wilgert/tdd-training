@@ -10,6 +10,8 @@ describe('Roman numeral converter', () => {
     ${5}  | ${'V'}
     ${6}  | ${'VI'}
     ${7}  | ${'VII'}
+    ${8}  | ${'VIII'}
+    ${9}  | ${'IX'}
   `('converts $input to "$expected"', ({ input, expected }) => {
     expect(convert(input)).toEqual(expected);
   });
