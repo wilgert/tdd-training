@@ -1,7 +1,15 @@
 export function convert(input: number): string {
   const characters = 'IVXLCDM';
   let output = '';
-  output += convertDigit(input, characters);
+  let digits = input
+    .toString()
+    .split('')
+    .reverse()
+    .map((x) => parseInt(x, 10));
+
+  digits.forEach((digit, index) => {
+    output = convertDigit(digits[index], characters.slice(index * 2)) + output;
+  });
 
   return output;
 }
