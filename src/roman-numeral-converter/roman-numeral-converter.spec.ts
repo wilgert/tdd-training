@@ -1,18 +1,4 @@
 import { convert } from './convert';
-/*
-X converts 1 -> I
-x converts 2 -> II
-x converts 3 -> III
-x converts 4 -> IV
-x converts 5 -> V
-converts 6 -> VI
-converts 7 -> VII
-converts 8 -> IIX
-converts 9 -> IX
-converts 10 -> X
-...
-converts 3999
-*/
 
 describe('Roman numeral converter', () => {
   it.each`
