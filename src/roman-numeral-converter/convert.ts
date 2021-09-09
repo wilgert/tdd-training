@@ -1,6 +1,13 @@
 export function convert(input: number): string {
   const characters = 'IVXLCDM';
   let output = '';
+  output += convertDigit(input, characters);
+
+  return output;
+}
+
+function convertDigit(input: number, characters: string) {
+  let output = '';
 
   if (input < 4) {
     output = characters[0].repeat(input);
@@ -17,6 +24,5 @@ export function convert(input: number): string {
   if (input === 9) {
     output = characters[0] + characters[2];
   }
-
   return output;
 }
