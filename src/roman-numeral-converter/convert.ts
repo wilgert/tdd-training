@@ -1,3 +1,7 @@
 export function convert(input: number): string {
-  return 'I'.repeat(input);
+  if (input < 4) {
+    return 'I'.repeat(input);
+  } else {
+    return 'IV';
+  }
 }

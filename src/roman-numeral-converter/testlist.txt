@@ -1,12 +1,12 @@
 X converts 1 -> I
 x converts 2 -> II
-converts 3 -> III
-converts 4
-converts 5
-converts 6
-converts 7
-converts 8
-converts 9
-converts 10
+x converts 3 -> III
+converts 4 -> IV
+converts 5 -> V
+converts 6 -> VI
+converts 7 -> VII
+converts 8 -> IIX
+converts 9 -> IX
+converts 10 -> X
 ...
 converts 3999

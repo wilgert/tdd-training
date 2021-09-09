@@ -6,6 +6,7 @@ describe('Roman numeral converter', () => {
     ${1}  | ${'I'}
     ${2}  | ${'II'}
     ${3}  | ${'III'}
+    ${4}  | ${'IV'}
   `('converts $input to "$expected"', ({ input, expected }) => {
     expect(convert(input)).toEqual(expected);
   });
