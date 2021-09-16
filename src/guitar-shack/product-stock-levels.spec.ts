@@ -1,6 +1,6 @@
 import { StockLevelService } from './stock-level.service';
 import { Product } from './product';
-import { ProductInfoProvider } from './productInfoProvider';
+import { ProductInfoProvider } from './product-info.provider';
 
 describe('ProductStockLevels', () => {
   let result: number;

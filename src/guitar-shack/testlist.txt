@@ -9,3 +9,8 @@ V Product above restock level after sale
 ProductStockLevels
 V Should retrieve productInfo
 V should return stocklevel
+
+RestockLevelService
+- Should retrieve productInfo
+- Should retrieve salesPerDay
+- Should return restockLevel based on leadTime, stockLevel and salesPerDay

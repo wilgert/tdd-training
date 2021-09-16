@@ -1,5 +1,6 @@
 import { GuitarShack } from './guitar-shack';
 import { StockLevelProvider } from './stock-level.provider';
+import { RestockLevelProvider } from './restock-level.provider';
 
 describe('Guitar Shack', () => {
   it('does not send alert when stock after sale above restock level', () => {
