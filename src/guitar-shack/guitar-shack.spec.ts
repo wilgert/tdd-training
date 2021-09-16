@@ -1,11 +1,11 @@
 import { GuitarShack } from './guitar-shack';
-import { StockLevels } from './stock.levels';
+import { StockLevelProvider } from './stock-level.provider';
 
 describe('Guitar Shack', () => {
   it('does not send alert when stock after sale above restock level', () => {
     const alertShopManager = jest.fn();
 
-    let stockLevels: StockLevels = { get: jest.fn().mockReturnValue(4) };
+    let stockLevels: StockLevelProvider = { get: jest.fn().mockReturnValue(4) };
     let restockLevels = { get: jest.fn().mockReturnValue(2) };
 
     let guitarShack = new GuitarShack(
@@ -27,7 +27,9 @@ describe('Guitar Shack', () => {
     ({ quantity }) => {
       const alertShopManager = jest.fn();
 
-      let stockLevels: StockLevels = { get: jest.fn().mockReturnValue(4) };
+      let stockLevels: StockLevelProvider = {
+        get: jest.fn().mockReturnValue(4),
+      };
       let restockLevels = { get: jest.fn().mockReturnValue(2) };
 
       let guitarShack = new GuitarShack(

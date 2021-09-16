@@ -1,5 +1,5 @@
 import { Product } from './product';
 
-export interface ProductService {
+export interface ProductInfoProvider {
   get: (productId: number) => Product;
 }

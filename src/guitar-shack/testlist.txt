@@ -8,4 +8,4 @@ V Product above restock level after sale
 
 ProductStockLevels
 V Should retrieve productInfo
-- should return stocklevel
+V should return stocklevel

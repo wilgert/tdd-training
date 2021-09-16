@@ -1,12 +1,12 @@
-import { ProductService } from './product.service';
-import { StockLevels } from './stock.levels';
+import { ProductInfoProvider } from './product-info.provider';
+import { StockLevelProvider } from './stock-level.provider';
 
-export class StockLevelService implements StockLevels {
-  constructor(private productService: ProductService) {}
+export class StockLevelService implements StockLevelProvider {
+  constructor(private productService: ProductInfoProvider) {}
 
   get(productId: number) {
-    this.productService.get(productId);
+    const { stockLevel } = this.productService.get(productId);
 
-    return 0;
+    return stockLevel;
   }
 }

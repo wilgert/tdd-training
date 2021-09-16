@@ -1,3 +1,3 @@
-export interface StockLevels {
+export interface StockLevelProvider {
   get: (productId: number) => number;
 }

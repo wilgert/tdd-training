@@ -1,9 +1,9 @@
-import { StockLevels } from './stock.levels';
+import { StockLevelProvider } from './stockLevelProvider';
 
 export class GuitarShack {
   constructor(
     private alertShopManager: (productId: number) => void,
-    private stockLevels: StockLevels,
+    private stockLevels: StockLevelProvider,
     private restockLevels: { get: (productId: number) => number }
   ) {}
 
