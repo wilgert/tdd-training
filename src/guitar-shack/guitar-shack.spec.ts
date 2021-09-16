@@ -7,7 +7,9 @@ describe('Guitar Shack', () => {
     const alertShopManager = jest.fn();
 
     let stockLevels: StockLevelProvider = { get: jest.fn().mockReturnValue(4) };
-    let restockLevels = { get: jest.fn().mockReturnValue(2) };
+    let restockLevels: RestockLevelProvider = {
+      get: jest.fn().mockReturnValue(2),
+    };
 
     let guitarShack = new GuitarShack(
       alertShopManager,
@@ -31,7 +33,9 @@ describe('Guitar Shack', () => {
       let stockLevels: StockLevelProvider = {
         get: jest.fn().mockReturnValue(4),
       };
-      let restockLevels = { get: jest.fn().mockReturnValue(2) };
+      let restockLevels: RestockLevelProvider = {
+        get: jest.fn().mockReturnValue(2),
+      };
 
       let guitarShack = new GuitarShack(
         alertShopManager,

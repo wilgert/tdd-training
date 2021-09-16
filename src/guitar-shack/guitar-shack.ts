@@ -1,4 +1,4 @@
-import { StockLevelProvider } from './stockLevelProvider';
+import { StockLevelProvider } from './stock-level.provider';
 
 export class GuitarShack {
   constructor(
