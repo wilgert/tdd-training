@@ -1,0 +1,7 @@
+CreateSale
+- Product below restock level after sale
+-- send alert
+- Product at restock level after sale
+-- send alert
+- Product above restock level after sale
+-- don't send alert
